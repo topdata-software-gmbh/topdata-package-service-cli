@@ -7,7 +7,7 @@ import (
 )
 
 var repositoriesListCmd = &cobra.Command{
-    Use:   "repositories:list",
+    Use:   "repository list",
     Short: "List all repositories",
     Run: func(cmd *cobra.Command, args []string) {
         fmt.Println("Listing all repositories...")
