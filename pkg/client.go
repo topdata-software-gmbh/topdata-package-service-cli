@@ -1,6 +1,7 @@
 package pkg
 
 import (
+	"io/ioutil"
 	"net/http"
 )
 
