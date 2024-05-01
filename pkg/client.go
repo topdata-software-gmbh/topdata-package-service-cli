@@ -4,15 +4,15 @@ import (
 	"net/http"
 )
 
-type topdataPackageServiceClient struct {
-	BaseURL      string
-	Username     string
-	Password     string
-	HTTPClient   *http.Client
+type TopdataPackageServiceClient struct {
+	BaseURL    string
+	Username   string
+	Password   string
+	HTTPClient *http.Client
 }
 
-func NewClient(baseURL, username, password string) *topdataPackageServiceClient {
-	return &topdataPackageServiceClient{
+func NewClient(baseURL, username, password string) *TopdataPackageServiceClient {
+	return &TopdataPackageServiceClient{
 		BaseURL:    baseURL,
 		Username:   username,
 		Password:   password,
