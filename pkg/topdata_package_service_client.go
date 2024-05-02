@@ -12,7 +12,7 @@ type TopdataPackageServiceClient struct {
 	HTTPClient *http.Client
 }
 
-func NewClient(baseURL, username, password string) *TopdataPackageServiceClient {
+func NewTopdataPackageServiceClient(baseURL, username, password string) *TopdataPackageServiceClient {
 	return &TopdataPackageServiceClient{
 		BaseURL:    baseURL,
 		Username:   username,
