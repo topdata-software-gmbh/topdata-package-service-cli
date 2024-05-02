@@ -1,21 +1,15 @@
-# Project Title
+# Topdata Package Service CLI
 
-## Description
 
-This is a brief description of the project.
 
-## Installation
+## About
+A cli which contains commands for managing Topdata packages using Topdata Package Service.
 
-Provide steps on how to install the project.
 
-## Usage
+## Quick Start
+```bash
+git clone git@github.com:topdata-software-gmbh/topdata-package-service-cli.git
+cd topdata-package-service-cli
+go run .
+```
 
-Provide examples and explanations on how to use the project.
-
-## Contributing
-
-Provide guidelines on how to contribute to the project.
-
-## License
-
-Provide information about the project's license.
