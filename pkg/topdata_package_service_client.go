@@ -1,6 +1,7 @@
 package pkg
 
 import (
+	"fmt"
 	"io/ioutil"
 	"net/http"
 )
@@ -40,4 +41,10 @@ func (c *TopdataPackageServiceClient) FetchRepositories() ([]byte, error) {
 	}
 
 	return body, nil
+}
+
+func (c *TopdataPackageServiceClient) Ping() (string, error) {
+	fmt.Println("Pinging server TODO")
+
+	return "TODO", nil
 }

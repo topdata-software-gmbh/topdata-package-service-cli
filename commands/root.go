@@ -3,6 +3,7 @@ package commands
 import (
 	"fmt"
 	"github.com/spf13/cobra"
+	"github.com/topdata-software-gmbh/topdata-package-service-cli/pkg"
 	"os"
 )
 
@@ -15,7 +16,10 @@ var rootCmd = &cobra.Command{
 `,
 }
 
-func Execute() {
+var topdataPackageServiceClient *pkg.TopdataPackageServiceClient
+
+func Execute(client *pkg.TopdataPackageServiceClient) {
+	topdataPackageServiceClient = client
 	if err := rootCmd.Execute(); err != nil {
 		fmt.Println(err)
 		os.Exit(1)
