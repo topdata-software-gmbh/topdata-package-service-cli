@@ -9,13 +9,15 @@ var pingCmd = &cobra.Command{
 	Use:   "ping",
 	Short: "Ping the server",
 	Run: func(cmd *cobra.Command, args []string) {
+		fmt.Println("Pinging server ...")
 		response, err := topdataPackageServiceClient.Ping()
 		if err != nil {
-			fmt.Printf("Error pinging server: %v\n", err)
+			fmt.Printf("Error: %v\n", err)
 			return
 		}
-		fmt.Printf("Server response: %s\n", response)
-	}}
+		fmt.Printf("Response: %s\n", response)
+	},
+}
 
 func init() {
 	rootCmd.AddCommand(pingCmd)

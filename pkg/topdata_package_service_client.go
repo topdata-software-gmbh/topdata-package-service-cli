@@ -1,8 +1,7 @@
 package pkg
 
 import (
-	"fmt"
-	"io/ioutil"
+	"io"
 	"net/http"
 )
 
@@ -22,7 +21,7 @@ func NewTopdataPackageServiceClient(baseURL, username, password string) *Topdata
 	}
 }
 
-func (c *TopdataPackageServiceClient) FetchRepositories() ([]byte, error) {
+func (c *TopdataPackageServiceClient) ListRepositories() ([]byte, error) {
 	req, err := http.NewRequest("GET", c.BaseURL+"/repositories", nil)
 	if err != nil {
 		return nil, err
@@ -35,7 +34,7 @@ func (c *TopdataPackageServiceClient) FetchRepositories() ([]byte, error) {
 	}
 	defer resp.Body.Close()
 
-	body, err := ioutil.ReadAll(resp.Body)
+	body, err := io.ReadAll(resp.Body)
 	if err != nil {
 		return nil, err
 	}
@@ -43,8 +42,23 @@ func (c *TopdataPackageServiceClient) FetchRepositories() ([]byte, error) {
 	return body, nil
 }
 
-func (c *TopdataPackageServiceClient) Ping() (string, error) {
-	fmt.Println("Pinging server TODO")
+func (c *TopdataPackageServiceClient) Ping() ([]byte, error) {
+	req, err := http.NewRequest("GET", c.BaseURL+"/ping", nil)
+	if err != nil {
+		return nil, err
+	}
+	req.SetBasicAuth(c.Username, c.Password)
 
-	return "TODO", nil
+	resp, err := c.HTTPClient.Do(req)
+	if err != nil {
+		return nil, err
+	}
+	defer resp.Body.Close()
+
+	body, err := io.ReadAll(resp.Body)
+	if err != nil {
+		return nil, err
+	}
+
+	return body, nil
 }
