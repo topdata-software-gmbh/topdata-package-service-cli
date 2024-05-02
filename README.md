@@ -13,3 +13,9 @@ cd topdata-package-service-cli
 go run .
 ```
 
+
+## TODO
+
+```bash
+topdata-package-service-cli repository build-sw6-plugin-release-package -r repo -b branch
+```
